@@ -1,0 +1,40 @@
+instalação 
+pip install customtkinter
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+import tkinter as tk
+from tkinter import filedialog
+
+def carregar_arquivo():
+    arquivo = filedialog.askopenfilename()
+    # Aqui você pode fazer algo com o arquivo, como exibir seu conteúdo na tela
+    print(f"Arquivo selecionado: {arquivo}")
+
+#++++++++++++  ONDE ENTRA O CÓGIDO++++++++++
+
+
+#+++++++++++++++++++++++++++++++++++++++++++
+
+def carregar_arquivo():
+    arquivo = filedialog.askopenfilename()
+    # Aqui você pode fazer algo com o arquivo, como exibir seu conteúdo na tela
+    print(f"Arquivo selecionado: {arquivo}")
+
+
+#o TKINTER criando Janela da aplicação
+janela = tk.Tk()
+janela.title("Carregar os arquivos")
+janela.geometry('300x300')
+
+#TRATAMENTO DA LABEL
+texto =tk.Label(janela,text="Escolher o arquivo a ser carregado.")
+texto.pack(padx=10, pady=10)
+
+#instancia  carrega o arquivo no botão
+botao_carregar = tk.Button(janela, text="Carregar Arquivo", command=carregar_arquivo)
+#botaocarregar.grid(coluna=10, row=10)   
+
+#aqui cria o Botão
+botao_carregar.pack()
+
+[]janela.mainloop()

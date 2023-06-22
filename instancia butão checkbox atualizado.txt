@@ -1,0 +1,25 @@
+import PyPDF2
+
+def localizar_e_imprimir_dado_em_pdf(caminho_pdf, texto_procurado):
+    with open(caminho_pdf, 'rb') as arquivo_pdf:
+        leitor_pdf = PyPDF2.PdfReader(arquivo_pdf)
+        num_paginas = len(leitor_pdf.pages)
+
+        for num_pagina in range(num_paginas):
+            pagina = leitor_pdf.pages[num_pagina]
+            conteudo = pagina.extract_text()
+
+            if texto_procurado in conteudo:
+                print(f'O texto "{texto_procurado}" foi encontrado na página {num_pagina + 1}')
+                print('Conteúdo da página:')
+                print(conteudo)
+                break
+        else:
+            print(f'O texto "{texto_procurado}" não foi encontrado no PDF.')
+
+# Exemplo de uso
+#caminho_pdf = 'caminho_para_o_pdf.pdf'
+caminho_pdf = 'C:\Users\tarcisio.frederico\Downloads\CPF rebeca.pdf'
+texto_procurado = '205.772.777-74'
+
+localizar_e_imprimir_dado_em_pdf(caminho_pdf, texto_procurado)
